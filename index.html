@@ -72,12 +72,7 @@
       color: #059669;
     }
     
-    .feature-icon {
-      background: linear-gradient(45deg, #10b981, #34d399);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+    /* Removed .feature-icon as requested */
     
     .testimonial-card {
       background: rgba(255, 255, 255, 0.1);
@@ -93,10 +88,47 @@
     .mobile-menu.active {
       transform: translateX(0);
     }
+
+    /* Modal Styles */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1000; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+        max-width: 700px;
+        border-radius: 8px;
+        position: relative;
+    }
+
+    .close-button {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close-button:hover,
+    .close-button:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
-  <!-- Navigation -->
   <header class="bg-white shadow-lg sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 py-4">
       <div class="flex justify-between items-center">
@@ -107,28 +139,25 @@
           <span>InterGen</span>
         </a>
         
-        <!-- Desktop Navigation -->
         <nav class="hidden md:flex space-x-8">
           <a href="#hero" class="text-gray-700 hover:text-green-600 font-medium transition">Home</a>
-          <a href="#features" class="text-gray-700 hover:text-green-600 font-medium transition">Features</a>
           <a href="#services" class="text-gray-700 hover:text-green-600 font-medium transition">Services</a>
+          <a href="#vision-mission" class="text-gray-700 hover:text-green-600 font-medium transition">Vision & Mission</a>
           <a href="#testimonials" class="text-gray-700 hover:text-green-600 font-medium transition">Stories</a>
           <a href="#contact" class="text-gray-700 hover:text-green-600 font-medium transition">Contact</a>
+          <a href="#team" class="text-gray-700 hover:text-green-600 font-medium transition">Team</a>
         </nav>
         
-        <!-- CTA Button 1 -->
         <a href="#signup" class="hidden md:block bg-green-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-green-700 transition cta-button">
           Get Started
         </a>
         
-        <!-- Mobile Menu Button -->
         <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-green-600">
           <i class="fas fa-bars text-xl"></i>
         </button>
       </div>
     </div>
     
-    <!-- Mobile Menu -->
     <div id="mobile-menu" class="mobile-menu md:hidden fixed top-0 right-0 h-full w-64 bg-white shadow-xl z-50">
       <div class="p-4 border-b">
         <button id="close-mobile-menu" class="float-right text-gray-700 hover:text-green-600">
@@ -137,16 +166,16 @@
       </div>
       <nav class="p-4 space-y-4">
         <a href="#hero" class="block text-gray-700 hover:text-green-600 font-medium">Home</a>
-        <a href="#features" class="block text-gray-700 hover:text-green-600 font-medium">Features</a>
         <a href="#services" class="block text-gray-700 hover:text-green-600 font-medium">Services</a>
+        <a href="#vision-mission" class="block text-gray-700 hover:text-green-600 font-medium">Vision & Mission</a>
         <a href="#testimonials" class="block text-gray-700 hover:text-green-600 font-medium">Stories</a>
         <a href="#contact" class="block text-gray-700 hover:text-green-600 font-medium">Contact</a>
+        <a href="#team" class="block text-gray-700 hover:text-green-600 font-medium">Team</a>
         <a href="#signup" class="block bg-green-600 text-white px-6 py-2 rounded-full font-semibold text-center">Get Started</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
   <section id="hero" class="hero-gradient text-white py-20 px-6 relative overflow-hidden">
     <div class="absolute top-0 left-0 w-full h-full opacity-10">
       <div class="floating-icon absolute top-20 left-20 text-4xl">🏠</div>
@@ -160,11 +189,10 @@
         <span class="text-green-200">Thrive Together</span>
       </h1>
       <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
-        Connect students with seniors and people with disabilities for affordable housing, meaningful relationships, and mutual support across Germany.
+        Connecting students, seniors, and people with disabilities for affordable housing and mutual support across Germany.
       </p>
       
-      <!-- Stats Section -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-8 mb-12">
         <div class="text-center">
           <div class="stats-counter text-green-200">500+</div>
           <p class="text-sm opacity-80">Active Matches</p>
@@ -177,29 +205,23 @@
           <div class="stats-counter text-green-200">15</div>
           <p class="text-sm opacity-80">German Cities</p>
         </div>
-        <div class="text-center">
-          <div class="stats-counter text-green-200">98%</div>
-          <p class="text-sm opacity-80">Satisfaction Rate</p>
-        </div>
       </div>
       
-      <!-- Hero CTAs -->
       <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-        <!-- CTA Button 2 -->
         <a href="#student-signup" class="bg-white text-green-800 px-8 py-4 rounded-full font-bold text-lg hover:bg-green-50 transition cta-button shadow-lg">
           <i class="fas fa-graduation-cap mr-2"></i>I'm a Student
         </a>
-        <!-- CTA Button 3 -->
         <a href="#senior-signup" class="bg-green-700 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-green-800 transition cta-button shadow-lg">
-          <i class="fas fa-heart mr-2"></i>I Need Support
+          <i class="fas fa-heart mr-2"></i>I'm a Senior
+        </a>
+        <a href="#disabled-signup" class="bg-indigo-700 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-indigo-800 transition cta-button shadow-lg">
+            <i class="fas fa-universal-access mr-2"></i>I'm Disabled
         </a>
       </div>
       
-      <!-- Email Signup -->
       <div class="max-w-md mx-auto">
         <form class="flex flex-col sm:flex-row gap-3">
           <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-3 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-300">
-          <!-- CTA Button 4 -->
           <button type="submit" class="bg-green-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-700 transition cta-button">
             Join Waitlist
           </button>
@@ -208,60 +230,32 @@
     </div>
   </section>
 
-  <!-- Key Features Section -->
-  <section id="features" class="py-20 px-6 bg-white">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold mb-4">Why Choose InterGen?</h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          Experience the future of intergenerational living with our comprehensive platform designed for meaningful connections.
-        </p>
-      </div>
+  <section id="vision-mission" class="py-20 px-6 bg-white">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-4">Our Vision & Mission</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
+        Guiding principles that drive our commitment to fostering intergenerational harmony and support.
+      </p>
       
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="card-hover bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-2xl">
-          <div class="text-4xl feature-icon mb-4">
-            <i class="fas fa-search-location"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-3">Smart Matching</h3>
-          <p class="text-gray-600 mb-4">Our AI-powered algorithm matches you based on location, preferences, lifestyle, and personality for perfect compatibility.</p>
-          <ul class="text-sm text-gray-500 space-y-1">
-            <li>• Location-based matching</li>
-            <li>• Personality compatibility</li>
-            <li>• Lifestyle preferences</li>
-          </ul>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="bg-green-50 p-8 rounded-2xl shadow-lg">
+          <i class="fas fa-lightbulb text-4xl text-green-700 mb-4"></i>
+          <h3 class="text-2xl font-bold mb-3">Our Vision</h3>
+          <p class="text-gray-700">
+            To create a society where intergenerational living is the norm, enriching lives, and strengthening communities across Germany.
+          </p>
         </div>
-        
-        <div class="card-hover bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-2xl">
-          <div class="text-4xl feature-icon mb-4">
-            <i class="fas fa-shield-alt"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-3">Safety First</h3>
-          <p class="text-gray-600 mb-4">Comprehensive background checks, verified profiles, and 24/7 support ensure a safe living environment for everyone.</p>
-          <ul class="text-sm text-gray-500 space-y-1">
-            <li>• Background verification</li>
-            <li>• 24/7 support hotline</li>
-            <li>• Regular check-ins</li>
-          </ul>
-        </div>
-        
-        <div class="card-hover bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl">
-          <div class="text-4xl feature-icon mb-4">
-            <i class="fas fa-users"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-3">Community Support</h3>
-          <p class="text-gray-600 mb-4">Join a vibrant community with events, workshops, and ongoing support to make your shared living experience amazing.</p>
-          <ul class="text-sm text-gray-500 space-y-1">
-            <li>• Monthly community events</li>
-            <li>• Skill-sharing workshops</li>
-            <li>• Peer support groups</li>
-          </ul>
+        <div class="bg-blue-50 p-8 rounded-2xl shadow-lg">
+          <i class="fas fa-bullseye text-4xl text-blue-700 mb-4"></i>
+          <h3 class="text-2xl font-bold mb-3">Our Mission</h3>
+          <p class="text-gray-700">
+            To facilitate safe, affordable, and meaningful shared living experiences that bridge generations and provide mutual support.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- How It Works -->
   <section class="py-20 px-6 bg-gray-50">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
@@ -271,7 +265,7 @@
       
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div class="text-center">
-          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
             <span class="text-2xl font-bold text-green-600">1</span>
           </div>
           <h3 class="text-lg font-semibold mb-2">Sign Up</h3>
@@ -279,7 +273,7 @@
         </div>
         
         <div class="text-center">
-          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
             <span class="text-2xl font-bold text-blue-600">2</span>
           </div>
           <h3 class="text-lg font-semibold mb-2">Get Matched</h3>
@@ -287,7 +281,7 @@
         </div>
         
         <div class="text-center">
-          <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
             <span class="text-2xl font-bold text-purple-600">3</span>
           </div>
           <h3 class="text-lg font-semibold mb-2">Meet & Connect</h3>
@@ -295,7 +289,7 @@
         </div>
         
         <div class="text-center">
-          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
             <span class="text-2xl font-bold text-green-600">4</span>
           </div>
           <h3 class="text-lg font-semibold mb-2">Start Living</h3>
@@ -305,7 +299,6 @@
     </div>
   </section>
 
-  <!-- Services Section -->
   <section id="services" class="py-20 px-6 bg-white">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
@@ -314,37 +307,37 @@
       </div>
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-gray-50 p-6 rounded-xl card-hover">
+        <div class="bg-gray-50 p-6 rounded-xl card-hover shadow-md">
           <i class="fas fa-home text-3xl text-green-600 mb-4"></i>
           <h3 class="text-xl font-bold mb-3">Housing Assistance</h3>
           <p class="text-gray-600">Find affordable housing options, navigate rental agreements, and access subsidized housing programs.</p>
         </div>
         
-        <div class="bg-gray-50 p-6 rounded-xl card-hover">
+        <div class="bg-gray-50 p-6 rounded-xl card-hover shadow-md">
           <i class="fas fa-handshake text-3xl text-blue-600 mb-4"></i>
           <h3 class="text-xl font-bold mb-3">Mediation Services</h3>
           <p class="text-gray-600">Professional mediation and conflict resolution to ensure harmonious living arrangements.</p>
         </div>
         
-        <div class="bg-gray-50 p-6 rounded-xl card-hover">
+        <div class="bg-gray-50 p-6 rounded-xl card-hover shadow-md">
           <i class="fas fa-calendar-alt text-3xl text-purple-600 mb-4"></i>
           <h3 class="text-xl font-bold mb-3">Care Coordination</h3>
           <p class="text-gray-600">Coordinate care services, medical appointments, and daily assistance for seniors and disabled individuals.</p>
         </div>
         
-        <div class="bg-gray-50 p-6 rounded-xl card-hover">
+        <div class="bg-gray-50 p-6 rounded-xl card-hover shadow-md">
           <i class="fas fa-graduation-cap text-3xl text-green-600 mb-4"></i>
           <h3 class="text-xl font-bold mb-3">Student Support</h3>
           <p class="text-gray-600">Academic support, career guidance, and study spaces for student members.</p>
         </div>
         
-        <div class="bg-gray-50 p-6 rounded-xl card-hover">
+        <div class="bg-gray-50 p-6 rounded-xl card-hover shadow-md">
           <i class="fas fa-laptop text-3xl text-blue-600 mb-4"></i>
           <h3 class="text-xl font-bold mb-3">Digital Training</h3>
           <p class="text-gray-600">Technology training and digital literacy programs for seniors and disabled individuals.</p>
         </div>
         
-        <div class="bg-gray-50 p-6 rounded-xl card-hover">
+        <div class="bg-gray-50 p-6 rounded-xl card-hover shadow-md">
           <i class="fas fa-heart text-3xl text-red-500 mb-4"></i>
           <h3 class="text-xl font-bold mb-3">Wellness Programs</h3>
           <p class="text-gray-600">Health and wellness activities, fitness programs, and mental health support.</p>
@@ -353,7 +346,6 @@
     </div>
   </section>
 
-  <!-- Benefits Section -->
   <section class="py-20 px-6 bg-gradient-to-r from-green-50 to-blue-50">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
@@ -390,7 +382,6 @@
             </li>
           </ul>
           <div class="mt-6">
-            <!-- CTA Button 5 -->
             <a href="#student-form" class="bg-green-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-700 transition cta-button">
               Apply as Student
             </a>
@@ -425,7 +416,6 @@
             </li>
           </ul>
           <div class="mt-6">
-            <!-- CTA Button 6 -->
             <a href="#senior-form" class="bg-red-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-red-600 transition cta-button">
               Get Support
             </a>
@@ -435,7 +425,6 @@
     </div>
   </section>
 
-  <!-- Testimonials -->
   <section id="testimonials" class="py-20 px-6 bg-gray-800 text-white">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
@@ -444,15 +433,15 @@
       </div>
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="testimonial-card p-6 rounded-xl">
+        <div class="testimonial-card p-6 rounded-xl shadow-lg">
           <div class="flex items-center mb-4">
-            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Lena" class="w-16 h-16 rounded-full mr-4" />
+            <div class="w-16 h-16 rounded-full bg-gray-600 flex items-center justify-center text-white text-2xl font-bold mr-4">F</div>
             <div>
-              <h4 class="font-bold">Lena Weber</h4>
-              <p class="text-sm text-gray-300">Student, Munich</p>
+              <h4 class="font-bold">Peter Schmidt | 65</h4>
+              <p class="text-sm text-gray-300">Senior, Bochum</p>
             </div>
           </div>
-          <p class="text-gray-200 mb-4">"InterGen saved my university experience. I was struggling with expensive rent in Munich, but now I live with Martha, a wonderful 72-year-old who's become like a grandmother to me. I help her with grocery shopping and she helps me with my German homework!"</p>
+          <p class="text-gray-200 mb-4">"InterGen has brought so much joy back into my life. I live with Lena, a bright student, who helps me with tech, and we share wonderful stories over tea. It’s truly a blessing to have her company."</p>
           <div class="flex text-yellow-400">
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
@@ -462,15 +451,15 @@
           </div>
         </div>
         
-        <div class="testimonial-card p-6 rounded-xl">
+        <div class="testimonial-card p-6 rounded-xl shadow-lg">
           <div class="flex items-center mb-4">
-            <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&q=80" alt="Hans" class="w-16 h-16 rounded-full mr-4 object-cover" />
+            <div class="w-16 h-16 rounded-full bg-gray-600 flex items-center justify-center text-white text-2xl font-bold mr-4">T</div>
             <div>
-              <h4 class="font-bold">Hans Mueller</h4>
-              <p class="text-sm text-gray-300">Senior, Frankfurt</p>
+              <h4 class="font-bold">Manfred Adu-Poku | 24</h4>
+              <p class="text-sm text-gray-300">Student, Bielefeld</p>
             </div>
           </div>
-          <p class="text-gray-200 mb-4">"After my wife passed, I felt so alone in our big house. Through InterGen, I met Tom, a medical student who brings so much energy and joy. He helps me with my computer, and I share my cooking recipes with him. It's like having a grandson!"</p>
+          <p class="text-gray-200 mb-4">"Finding affordable housing in Bielefeld was tough until I found InterGen. Now I live with Hans, a retired teacher, who shares great wisdom. I assist him with errands, and he's a fantastic sounding board for my studies."</p>
           <div class="flex text-yellow-400">
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
@@ -480,15 +469,15 @@
           </div>
         </div>
         
-        <div class="testimonial-card p-6 rounded-xl">
+        <div class="testimonial-card p-6 rounded-xl shadow-lg">
           <div class="flex items-center mb-4">
-            <img src="https://images.unsplash.com/photo-1583511655924-b1d5a9c9cc2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&q=80" alt="Fatima" class="w-16 h-16 rounded-full mr-4 object-cover" />
+            <div class="w-16 h-16 rounded-full bg-gray-600 flex items-center justify-center text-white text-2xl font-bold mr-4">S</div>
             <div>
-              <h4 class="font-bold">Fatima Al-Rashid</h4>
-              <p class="text-sm text-gray-300">Disabled, Berlin</p>
+              <h4 class="font-bold">Sabine Becker | 41</h4>
+              <p class="text-sm text-gray-300">Disabled, Lemgo</p>
             </div>
           </div>
-          <p class="text-gray-200 mb-4">"Living with a disability, I needed someone who could help me with daily tasks. InterGen matched me with Sarah, a nursing student. She's not just a helper, she's become my best friend. We go to museums together and she's teaching me photography!"</p>
+          <p class="text-gray-200 mb-4">"InterGen matched me with a caring student, Elias, who provides invaluable support with daily tasks, allowing me to maintain my independence. His company makes my home feel vibrant again."</p>
           <div class="flex text-yellow-400">
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
@@ -501,7 +490,22 @@
     </div>
   </section>
 
-  <!-- Final CTA Section -->
+  <section id="team" class="py-20 px-6 bg-gray-50">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-16">Meet the Team</h2>
+      <div class="flex flex-col items-center">
+        <div class="bg-white p-8 rounded-2xl shadow-lg max-w-md">
+          <div class="w-32 h-32 bg-green-200 rounded-full flex items-center justify-center mx-auto mb-6 text-5xl text-green-700 font-bold">O</div>
+          <h3 class="text-2xl font-bold mb-2">Oyekunle Olamide</h3>
+          <p class="text-green-600 font-semibold mb-4">Founder & Developer</p>
+          <p class="text-gray-600 leading-relaxed">
+            With a background in Business Informatics and a passion for social innovation, I am dedicated to creating smart, inclusive solutions that connect generations and foster meaningful shared living across Germany.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="py-20 px-6 bg-gradient-to-r from-green-600 to-blue-600 text-white">
     <div class="max-w-4xl mx-auto text-center">
       <h2 class="text-4xl font-bold mb-6">Ready to Transform Your Life?</h2>
@@ -510,7 +514,6 @@
       </p>
       
       <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-        <!-- CTA Button 7 -->
         <a href="#free-consultation" class="bg-white text-green-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition cta-button shadow-lg">
           <i class="fas fa-calendar-check mr-2"></i>Book Free Consultation
         </a>
@@ -525,7 +528,6 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer id="contact" class="bg-gray-900 text-white py-12">
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -538,16 +540,16 @@
           </div>
           <p class="text-gray-300 mb-4">Building intergenerational communities where everyone thrives together across Germany.</p>
           <div class="flex space-x-4">
-            <a href="https://facebook.com/intergen" class="text-gray-400 hover:text-white transition">
+            <a href="https://facebook.com/intergen" class="text-gray-400 hover:text-white transition" target="_blank" rel="noopener noreferrer">
               <i class="fab fa-facebook text-xl"></i>
             </a>
-            <a href="https://twitter.com/intergen" class="text-gray-400 hover:text-white transition">
+            <a href="https://twitter.com/intergen" class="text-gray-400 hover:text-white transition" target="_blank" rel="noopener noreferrer">
               <i class="fab fa-twitter text-xl"></i>
             </a>
-            <a href="https://linkedin.com/company/intergen" class="text-gray-400 hover:text-white transition">
+            <a href="https://linkedin.com/company/intergen" class="text-gray-400 hover:text-white transition" target="_blank" rel="noopener noreferrer">
               <i class="fab fa-linkedin text-xl"></i>
             </a>
-            <a href="https://instagram.com/intergen" class="text-gray-400 hover:text-white transition">
+            <a href="https://instagram.com/intergen" class="text-gray-400 hover:text-white transition" target="_blank" rel="noopener noreferrer">
               <i class="fab fa-instagram text-xl"></i>
             </a>
           </div>
@@ -556,19 +558,18 @@
         <div>
           <h4 class="text-lg font-semibold mb-4">Services</h4>
           <ul class="space-y-2 text-gray-300">
-            <li><a href="#" class="hover:text-white transition">Student Housing</a></li>
-            <li><a href="#" class="hover:text-white transition">Senior Support</a></li>
-            <li><a href="#" class="hover:text-white transition">Disability Services</a></li>
-            <li><a href="#" class="hover:text-white transition">Community Events</a></li>
+            <li><a href="#" class="hover:text-white transition service-link" data-service="studentHousing">Student Housing</a></li>
+            <li><a href="#" class="hover:text-white transition service-link" data-service="seniorSupport">Senior Support</a></li>
+            <li><a href="#" class="hover:text-white transition service-link" data-service="disabilityServices">Disability Services</a></li>
+            <li><a href="#" class="hover:text-white transition service-link" data-service="communityEvents">Community Events</a></li>
           </ul>
         </div>
         
         <div>
-          <h4 class="text-lg font-semibold mb-4">Support</h4>
+          <h4 class="text-lg font-semibold mb-4">Legal</h4>
           <ul class="space-y-2 text-gray-300">
-            <li><a href="#" class="hover:text-white transition">Help Center</a></li>
-            <li><a href="#" class="hover:text-white transition">Safety Guidelines</a></li>
-            <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+            <li><a href="#" id="privacy-policy-link" class="hover:text-white transition cursor-pointer">Privacy Policy</a></li>
+            <li><a href="#" id="imprint-link" class="hover:text-white transition cursor-pointer">Imprint</a></li>
             <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
           </ul>
         </div>
@@ -578,7 +579,7 @@
           <div class="space-y-2 text-gray-300">
             <p><i class="fas fa-phone mr-2"></i>+49 30 1234 5678</p>
             <p><i class="fas fa-envelope mr-2"></i>hello@intergen.org</p>
-            <p><i class="fas fa-map-marker-alt mr-2"></i>Berlin, Germany</p>
+            <p><i class="fas fa-map-marker-alt mr-2"></i>Lemgo, Germany</p>
           </div>
           <div class="mt-4">
             <h5 class="font-semibold mb-2">Emergency Support</h5>
@@ -593,7 +594,59 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <div id="imprint-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" id="close-imprint">&times;</span>
+      <h2 class="text-2xl font-bold mb-4">Imprint</h2>
+      <p class="mb-2"><strong>InterGen GmbH</strong></p>
+      <p class="mb-2">Musterstraße 123</p>
+      <p class="mb-2">32657 Lemgo, Germany</p>
+      <p class="mb-2"><strong>Represented by:</strong> Oyekunle Olamide</p>
+      <p class="mb-2"><strong>Contact:</strong></p>
+      <p class="mb-2">Phone: +49 30 1234 5678</p>
+      <p class="mb-4">Email: info@intergen.org</p>
+      <p class="text-sm text-gray-600">
+        Registered in the Commercial Register of the Local Court Lemgo.
+        Register Number: HRB 12345
+        VAT Identification Number according to §27a Value Added Tax Act: DE123456789
+      </p>
+    </div>
+  </div>
+
+  <div id="privacy-policy-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" id="close-privacy">&times;</span>
+      <h2 class="text-2xl font-bold mb-4">Privacy Policy (Germany/EU)</h2>
+      <p class="mb-4">
+        At InterGen, we take your privacy seriously. This policy explains how we collect, use, and protect your personal data in accordance with the General Data Protection Regulation (GDPR) and German data protection laws.
+      </p>
+      <h3 class="text-xl font-semibold mb-2">1. Data Collection</h3>
+      <p class="mb-4">
+        We collect personal data you provide when you register, use our services, or communicate with us. This may include your name, contact information, living preferences, and background check details.
+      </p>
+      <h3 class="text-xl font-semibold mb-2">3. Data Security</h3>
+      <p class="mb-4">
+        We implement robust security measures, including encryption and access controls, to protect your data from unauthorized access, alteration, disclosure, or destruction.
+      </p>
+      <h3 class="text-xl font-semibold mb-2">4. Your Rights</h3>
+      <p class="mb-4">
+        Under GDPR, you have the right to access, rectify, erase, or restrict the processing of your personal data. You can also object to processing and have the right to data portability.
+      </p>
+      <h3 class="text-xl font-semibold mb-2">5. Contact</h3>
+      <p>
+        For any questions regarding our privacy policy or to exercise your rights, please contact us at privacy@intergen.org.
+      </p>
+    </div>
+  </div>
+
+  <div id="service-details-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" id="close-service-details">&times;</span>
+      <h2 class="text-2xl font-bold mb-4" id="service-details-title"></h2>
+      <div id="service-details-content"></div>
+    </div>
+  </div>
+
   <script>
     // Mobile menu toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -703,9 +756,129 @@
     document.querySelectorAll('section').forEach(section => {
       section.style.opacity = '0';
       section.style.transform = 'translateY(20px)';
-      section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
       observer.observe(section);
     });
+
+    // Modals functionality
+    const imprintModal = document.getElementById('imprint-modal');
+    const privacyModal = document.getElementById('privacy-policy-modal');
+    const imprintLink = document.getElementById('imprint-link');
+    const privacyLink = document.getElementById('privacy-policy-link');
+    const closeImprintBtn = document.getElementById('close-imprint');
+    const closePrivacyBtn = document.getElementById('close-privacy');
+
+    imprintLink.onclick = function(event) {
+        event.preventDefault();
+        imprintModal.style.display = "block";
+    }
+
+    privacyLink.onclick = function(event) {
+        event.preventDefault();
+        privacyModal.style.display = "block";
+    }
+
+    closeImprintBtn.onclick = function() {
+        imprintModal.style.display = "none";
+    }
+
+    closePrivacyBtn.onclick = function() {
+        privacyModal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == imprintModal) {
+            imprintModal.style.display = "none";
+        }
+        if (event.target == privacyModal) {
+            privacyModal.style.display = "none";
+        }
+    }
+
+    // Service Details Modals
+    const serviceDetailsModal = document.getElementById('service-details-modal');
+    const serviceDetailsTitle = document.getElementById('service-details-title');
+    const serviceDetailsContent = document.getElementById('service-details-content');
+    const closeServiceDetailsBtn = document.getElementById('close-service-details');
+
+    const serviceData = {
+      studentHousing: {
+        title: "Student Housing Solutions",
+        content: `
+          <p class="mb-4">InterGen connects students with affordable and unique housing opportunities by matching them with seniors or individuals with disabilities who have spare rooms.</p>
+          <ul class="list-disc list-inside space-y-2">
+            <li>Access to significantly reduced or free rent in exchange for companionship and light assistance.</li>
+            <li>Opportunity to live in comfortable, well-located homes across German cities.</li>
+            <li>A chance to gain valuable life experience and build meaningful intergenerational bonds.</li>
+            <li>Support with academic and career networking through our senior community.</li>
+          </ul>
+          <p class="mt-4"><strong>Key Benefits:</strong> Financial relief, community integration, personal growth.</p>
+        `
+      },
+      seniorSupport: {
+        title: "Comprehensive Senior Support",
+        content: `
+          <p class="mb-4">Our program offers seniors companionship and practical support, allowing them to age gracefully and independently in their own homes.</p>
+          <ul class="list-disc list-inside space-y-2">
+            <li>Daily companionship and reduced feelings of loneliness.</li>
+            <li>Assistance with household tasks, light chores, and technology needs.</li>
+            <li>Access to a vibrant community network and social activities.</li>
+            <li>Peace of mind for families knowing their loved ones have consistent, friendly support.</li>
+          </ul>
+          <p class="mt-4"><strong>Key Benefits:</strong> Companionship, practical assistance, enhanced independence.</p>
+        `
+      },
+      disabilityServices: {
+        title: "Empowering Disability Services",
+        content: `
+          <p class="mb-4">InterGen provides tailored support for individuals with disabilities, connecting them with compassionate housemates who can assist with daily living and foster independence.</p>
+          <ul class="list-disc list-inside space-y-2">
+            <li>Personalized assistance with daily activities and errands.</li>
+            <li>Companionship and social engagement to enhance quality of life.</li>
+            <li>Access to digital literacy training and adaptive technology support.</li>
+            <li>A safe and supportive home environment tailored to individual needs.</li>
+          </ul>
+          <p class="mt-4"><strong>Key Benefits:</strong> Increased independence, social inclusion, personalized care.</p>
+        `
+      },
+      communityEvents: {
+        title: "Engaging Community Events",
+        content: `
+          <p class="mb-4">InterGen fosters a strong sense of community through a variety of regular events and workshops designed for all members.</p>
+          <ul class="list-disc list-inside space-y-2">
+            <li>Monthly social gatherings, shared meals, and cultural outings.</li>
+            <li>Skill-sharing workshops (e.g., digital literacy for seniors, cooking for students).</li>
+            <li>Support groups and networking opportunities for students, seniors, and disabled individuals.</li>
+            <li>Opportunities to build lasting friendships and expand personal horizons.</li>
+          </ul>
+          <p class="mt-4"><strong>Key Benefits:</strong> Social connection, skill development, shared experiences.</p>
+        `
+      }
+    };
+
+    document.querySelectorAll('.service-link').forEach(link => {
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+        const serviceType = this.dataset.service;
+        const data = serviceData[serviceType];
+        if (data) {
+          serviceDetailsTitle.textContent = data.title;
+          serviceDetailsContent.innerHTML = data.content;
+          serviceDetailsModal.style.display = "block";
+        }
+      });
+    });
+
+    closeServiceDetailsBtn.onclick = function() {
+        serviceDetailsModal.style.display = "none";
+    }
+
+    window.addEventListener('click', function(event) {
+        if (event.target == serviceDetailsModal) {
+            serviceDetailsModal.style.display = "none";
+        }
+    });
+
   </script>
 </body>
 </html>
